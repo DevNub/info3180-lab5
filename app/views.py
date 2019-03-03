@@ -30,6 +30,21 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/secure-page')
+@login_required
+def secure_page():
+    """Render a secure page on our website that only logged in users can access."""
+    return render_template('secure_page.html')
+
+@app.route("/logout")
+@login_required
+def logout():
+    # Logout the user and end the session
+    logout_user()
+    flash('You have been logged out.', 'danger')
+    return redirect(url_for('home'))
+    
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
