@@ -8,6 +8,8 @@ Flask-Migrate
 Flask-Script
 Flask-Login
 psycopg2
+Werkzeug
+alembic
 
 # ----------------------
 # Production Server
